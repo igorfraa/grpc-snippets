@@ -1,0 +1,11 @@
+syntax = "proto3";
+option go_package = "github.com/igorfraa/grpc-snippets/internal/model/grpc";
+
+service Root {
+  rpc Ping(PingMessage) returns (PingMessage);
+}
+
+message PingMessage {
+  optional string payload = 1;
+  int64 seq = 2;
+}
