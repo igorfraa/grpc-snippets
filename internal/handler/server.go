@@ -35,7 +35,6 @@ func (s *GRPCServer) Run() error {
 
 func (s *GRPCServer) Ping(_ context.Context, req *pb.PingMessage) (*pb.PingMessage, error) {
 	s.Logger.Debug("got gRPC ping", zap.Int64("seq", req.GetSeq()), zap.Any("message", req.GetPayload()))
-	pingResponse := "pong"
-	req.Payload = &pingResponse
+	req.Payload = "pong"
 	return req, nil
 }

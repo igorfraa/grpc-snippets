@@ -1,12 +1,16 @@
 # grpc-snippets
+```sh
+go generate ./...
+```
 
 # ts+vue 
 ```sh
-protoc --plugin=protoc-gen-grpc-web=frontend/node_modules/.bin/protoc-gen-grpc-web \
-  		--grpc-web_out=import_style=commonjs+dts,mode=grpcweb:frontend/src/lib/ \
-  		--js_out=import_style=commonjs:frontend/src/lib/ \
-  		-I internal/model/grpc \
-  		protobuf.proto
+npm i --save protoc-gen-grpc-web
+protoc --plugin=protoc-gen-grpc-web=frontend/ping-example/node_modules/.bin/protoc-gen-grpc-web \
+  		--grpc-web_out=import_style=commonjs+dts,mode=grpcweb:frontend/ping-example/src/lib/ \
+  		--js_out=import_style=commonjs:frontend/ping-example/src/lib/ \
+  		-I proto/ \
+  		ping.proto
 ```
 
 # go (easy as in docs) 
